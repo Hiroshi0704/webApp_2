@@ -1,0 +1,5 @@
+Django==2.2.10
+django-cleanup==4.0.0
+Pillow==7.0.0
+stripe==2.42.0
+djangorestframework==3.11.0

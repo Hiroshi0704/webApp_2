@@ -1,0 +1,29 @@
+{% extends 'shiftApp/base.html' %}
+{% load static %}
+{% load index %}
+
+{% block main_title %}
+  - Change Plan
+{% endblock main_title %}
+
+{% block main_content %}
+  <div class="container">
+    <form method="post">
+      {% csrf_token %}
+      <ul class="plan-menu">
+        {% for plan in form.plan %}
+          <li class="plan-item">
+            <div class="form-check">
+              {{ plan.tag }}
+              <label class="form-check-label" for="{{ plan.id_for_label }}">
+                  <h3 class="plan-title">{{ shift_app_plan_titles|index:forloop.counter0 }}</h3>
+                  <span class="plan-price">￥{{ shift_app_plan_prices|index:forloop.counter0|floatformat }}</span>
+              </label>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <button class="btn btn-success" type="submit">OK</button>
+    </form>
+  </div>
+{% endblock main_content %}

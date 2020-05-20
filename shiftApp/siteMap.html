@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<div class="mermaid">
+    graph TB
+    login(ログイン画面) -->|ログイン成功| app_list(アプリケーション一覧画面)
+    app_list -->|登録済| shift_app_home(勤務表作成機能初期画面:勤務表一覧を表示)
+    app_list -->|未登録| buy_shift_app(勤務表作成機能購入画面) 
+    buy_shift_app　-->|登録後| shift_app_home
+    buy_shift_app -->|キャンセル| app_list
+
+    shift_app_home --> blank_a( ) --> blank_b( ) --> shift_list(勤務表一覧画面)
+        shift_list --> shift_detail(勤務表詳細画面)
+            shift_detail　--> shift_restrequest(勤務表希望休入力画面)
+            shift_detail　--> shift_manual(勤務表手動入力画面)
+            shift_detail　--> shift_update(勤務表更新画面)
+            shift_detail　--> shift_delete(勤務表削除画面)
+
+    shift_app_home --> worker_list(従業員一覧画面)
+        worker_list --> worker_create(従業員作成画面)
+        worker_list --> worker_delete(従業員削除画面)
+    shift_app_home --> work_plan_list(勤務計画一覧画面)
+        work_plan_list --> work_plan_create(勤務計画作成画面)
+        work_plan_list --> work_plan_update(勤務計画更新画面)
+        work_plan_list --> work_plan_delete(勤務計画削除画面)
+    shift_app_home --> blank_c( ) --> blank_d( ) --> work_style_list(勤務形態一覧画面)
+        work_style_list --> work_style_create(勤務形態作成画面)
+        work_style_list --> work_style_update(勤務形態更新画面)
+        work_style_list --> work_style_delete(勤務形態削除画面)
+    
+</div>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>

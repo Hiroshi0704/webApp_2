@@ -1,0 +1,50 @@
+#colors {
+    background-color: #64BCFC; 
+    background: #68C5F3; 
+    color: #454545;
+    text-shadow: #DFDFDF;
+}
+
+.app-list .navbar {
+    background-color: #64BCFC;
+}
+
+.app-list .navbar-brand {
+    color: white;
+}
+
+.container {
+    padding: 12px 0px;
+}
+
+.card {
+    margin: 12px 0px;
+}
+
+.app-list .btn {
+    padding: 4px 12px;
+    border: 0;
+}
+
+.app-list .btn-secondary {
+    background-color: #DFDFDF;
+}
+
+.app-list .btn-secondary:hover,
+.app-list .btn-secondary:focus,
+.app-list .btn-success:hover,
+.app-list .btn-success:focus,
+.app-list .btn-primary:hover,
+.app-list .btn-primary:focus {
+    background-color: #454545;
+}
+
+.app-list .btn-success {
+    background-color: #64BCFC;
+}
+
+.app-list .btn-primary {
+    background-color: #68C5F3;
+}
+
+

@@ -1,0 +1,57 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block main_css %}
+  <link rel="stylesheet" href="{% static 'pages/css/app_list.css' %}">
+{% endblock main_css %}
+
+{% block main_content %}
+  <div class="app-list">
+    <header>
+      <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand mr-auto" href="{% url 'pages:app_list' %}">Apps</a>
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="btn btn-secondary" href="{% url 'accounts:logout' %}">Logout</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+  
+    <aside></aside>
+  
+    <main class="container">
+      <div class="row">
+        {% for app in app_list %}
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h1 class="card-title">{{ app.name }}</h1>
+              <p class="card-text">
+                xxxxxx xxxxx xxxxx xxxxx xxxxx xxxxx 
+                xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx
+                xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx 
+                xxxxx xxxxx xxxxx xxxxx xxxxx
+              </p>
+              <div class="row">
+                {% if app.enable %}
+                <div class="col-12">
+                  <a class="btn btn-primary btn-lg btn-block card-link" href="{{ app.open_url }}">Open</a>
+                </div>
+                {% else %}
+                <div class="col-12">
+                  <a class="btn btn-success btn-lg btn-block card-link" href="{{ app.buy_url }}">Buy</a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
+    <footer></footer>
+  </div>
+{% endblock main_content %}

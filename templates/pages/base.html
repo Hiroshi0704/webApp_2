@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}{% endblock page_title %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static '/pages/css/base.css' %}">
+  {% block main_css %}{% endblock %}
+{% endblock extra_css %}
+
+{% block content %}
+  {% include '_message.html' %}
+  {% block main_content %}{% endblock %}
+{% endblock content %}
+
+{% block extra_js %}
+  {% block main_js %}{% endblock %}
+{% endblock extra_js %}

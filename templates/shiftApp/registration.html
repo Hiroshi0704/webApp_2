@@ -1,0 +1,48 @@
+{% extends 'shiftApp/base.html' %}
+{% load static %}
+{% load index %}
+
+{% block main_title %}
+  - Registration
+{% endblock main_title %}
+
+{% block main_css %}
+  <link rel="stylesheet" href="{% static 'shiftApp/css/registration.css' %}">
+{% endblock main_css %}
+
+{% block content %}
+  <header>
+    <nav class="navbar navbar-expand-md">
+      <a class="navbar-brand mr-auto" href="{% url 'pages:app_list' %}">Apps</a>
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="btn btn-secondary" href="{% url 'accounts:logout' %}">Logout</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+  <div class="registration-view container">
+    <form method="post">
+      {% csrf_token %}
+      <ul class="plan-menu">
+        {% for plan in form.plan %}
+          <li class="plan-item">
+            <div class="form-check">
+              {{ plan.tag }}
+              <label class="form-check-label" for="{{ plan.id_for_label }}">
+                  <h3 class="plan-title">{{ shift_app_plan_titles|index:forloop.counter0 }}</h3>
+                  <span class="plan-price">￥{{ shift_app_plan_prices|index:forloop.counter0|floatformat }}</span>
+              </label>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <button class="btn btn-success" type="submit">OK</button>
+    </form>
+  </div>
+{% endblock content %}
+
+{% block main_js %}
+{% endblock main_js %}

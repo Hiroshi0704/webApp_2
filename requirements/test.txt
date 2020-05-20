@@ -1,0 +1,4 @@
+-r local.txt
+coverage==4.5.4
+selenium==3.141.0
+chromedriver-binary==80.0.3987.106

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+  shiftApp
+  {% block main_title %}{% endblock %}
+{% endblock page_title %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'shiftApp/css/base.css' %}">
+  {% block main_css %}{% endblock %}
+{% endblock extra_css %}
+
+{% block extra_js %}
+  <script src="{% static 'shiftApp/js/shiftApp.js' %}"></script>
+  <script src="{% static 'shiftApp/js/util/ajax.js' %}"></script>
+  <script src="{% static 'shiftApp/js/dialog/AbstractDialog.js' %}"></script>
+  <script src="{% static 'shiftApp/js/table/AbstractTable.js' %}"></script>
+  <script src="{% static 'shiftApp/js/view/Abstract.js' %}"></script>
+  {% block main_js %}{% endblock %}
+{% endblock extra_js %}
+
+{% block content %}
+  <div class="shiftApp">
+    <header>
+      <nav class="navbar navbar-expand-md fixed-top">
+        <input type="checkbox" id="sidebar-toggler">
+        <label for="sidebar-toggler" id="sidebar-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <nav class="sidebar">
+          <ul class="sidebar-menu">
+            <li class="sidebar-item"><button id="homeLink" class="sidebar-btn">Home</button></li>
+            <li class="sidebar-item"><button id="shiftLink" class="sidebar-btn">Shift</button></li>
+            <li class="sidebar-item"><button id="workerLink" class="sidebar-btn">Worker</button></li>
+            <li class="sidebar-item"><button id="workPlanLink" class="sidebar-btn">WorkPlan</button></li>
+            <li class="sidebar-item"><button id="workStyleLink" class="sidebar-btn">WorkStyle</button></li>
+            <li class="sidebar-item"><button id="settingLink" class="sidebar-btn">Setting</button></li>
+            <li class="sidebar-item"><button id="appsLink" class="sidebar-btn">Apps</button></li>
+          </ul>
+        </nav>
+        <a class="navbar-brand mr-auto" href="{% url 'shiftApp:home' %}">shiftApp</a>
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="btn btn-secondary" href="{% url 'accounts:logout' %}">Logout</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <main id="main">
+      {% block main_content %}{% endblock %}
+    </main>
+  </div>
+{% endblock content %}

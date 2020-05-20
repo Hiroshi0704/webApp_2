@@ -1,0 +1,27 @@
+
+.form-check {
+    height: 100%;
+    width: 100%;
+}
+
+.form-check-label {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.plan-item {
+    height: 100px;
+    border-radius: 4px;
+}
+
+.plan-item:hover,
+.plan-item:focus {
+    background-color: #EB8686;
+}
+
+.plan-radio {
+    margin-left: 0px;
+    top: 37px;
+}

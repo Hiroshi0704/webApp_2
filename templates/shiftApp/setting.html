@@ -1,0 +1,23 @@
+{% extends 'shiftApp/base.html' %}
+{% load static %}
+
+{% block main_title %}
+  - Home
+{% endblock main_title %}
+
+{% block main_content %}
+  <div class="container">
+    <h1>Setting</h1>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ request.user.email }}</h5>
+        <p>Plan: {{ shift_app.plan.title }} <a href="{% url 'shiftApp:update' shift_app.id %}">Change</a></p>
+      </div>
+    </div>
+    <!-- <a href="{% url 'shiftApp:cancellation' %}">Cancellation</a> -->
+  </div>
+{% endblock main_content %}
+
+{% block main_js %}
+  <script src="{% static 'shiftApp/js/view/Setting.js' %}"></script>
+{% endblock main_js %}
